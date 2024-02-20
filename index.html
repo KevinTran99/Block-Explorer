@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="./app.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.5.0/web3.min.js"
+      integrity="sha512-FhAl50BpK3gf9K//lbAWek9EEQEtGQyyXZNc1fuwcC2tVf2cskiJBcumXY0zJksYtms6S5cqubp1MNfUYTkO2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="./app.js"
+      type="module"
+    ></script>
+    <title>Block Explorer</title>
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1>Block Explorer</h1>
+    </header>
+    <main>
+      <div class="container">
+        <section class="input-container">
+          <div class="form-control">
+            <input
+              type="text"
+              name="accountNumber"
+              id="accountNumber"
+              placeholder="Input Account"
+            />
+
+            <button
+              id="checkBalance"
+              class="btn btn-primary"
+            >
+              Check account balance
+            </button>
+
+            <div>
+              <span>Eth Balance</span>
+            </div>
+
+            <div
+              id="balance"
+              class="balance"
+            ></div>
+          </div>
+
+          <div class="form-control">
+            <input
+              type="text"
+              name="amount"
+              id="amount"
+              placeholder="Input amount to send"
+            />
+          </div>
+
+          <div class="form-control">
+            <input
+              type="text"
+              name="toAccountNumber"
+              id="toAccountNumber"
+              placeholder="Input receiver"
+            />
+
+            <button
+              id="sendTx"
+              class="btn btn-primary"
+            >
+              Transfer
+            </button>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="input-transactions">
+          <h4>Transactions</h4>
+          <div class="transactions-container">
+            <div>
+              <span>From</span><span>Interacted With (To)</span
+              ><span>Ethers</span>
+            </div>
+            <div id="transactions"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
