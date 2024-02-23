@@ -7,6 +7,7 @@ const valueInput = document.querySelector('#amount');
 const sendButton = document.querySelector('#sendTx');
 
 const refreshButton = document.querySelector('#refreshBlocks');
+const transactionList = document.querySelector('#transactions');
 
 const rpc = new Web3('HTTP://127.0.0.1:7545');
 
@@ -21,6 +22,7 @@ async function checkBalance() {
   account = accountInput.value;
   const balance = await rpc.eth.getBalance(account);
   displayBalance.innerHTML = rpc.utils.fromWei(balance, 'ether');
+  await getLatestBlockNumber();
 }
 
 async function sendTransaction() {
@@ -46,6 +48,34 @@ async function getBlockNumber() {
   } catch (error) {
     console.error(error);
   }
+}
+
+async function getLatestBlockNumber() {
+  try {
+    const latestBlock = await rpc.eth.getBlock('latest');
+    if (latestBlock !== null) {
+      await displayHistory(latestBlock.transactions);
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function displayHistory(transactions) {
+  transactionList.innerHTML = '';
+  for (let hash of transactions) {
+    let trx = await rpc.eth.getTransaction(hash);
+    console.log(trx);
+    createTransactionList(trx);
+  }
+}
+
+function createTransactionList(transaction) {
+  transactionList.innerHTML += `<span>${transaction.from}</span>
+  <span>${transaction.to}</span>
+  <span>${rpc.utils.fromWei(transaction.value, 'ether')} ETH</span>`;
 }
 
 document.addEventListener('DOMContentLoaded', initApp);
