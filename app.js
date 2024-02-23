@@ -21,7 +21,7 @@ function initApp() {
 async function checkBalance() {
   account = accountInput.value;
   const balance = await rpc.eth.getBalance(account);
-  displayBalance.innerHTML = rpc.utils.fromWei(balance, 'ether');
+  displayBalance.innerHTML = rpc.utils.fromWei(balance, 'ether') + ' ETH';
   await getLatestBlockNumber();
 }
 
