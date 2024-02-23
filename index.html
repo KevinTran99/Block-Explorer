@@ -36,14 +36,16 @@
               id="accountNumber"
               placeholder="Input Account"
             />
+          </div>
 
-            <button
-              id="checkBalance"
-              class="btn btn-primary"
-            >
-              Check account balance
-            </button>
+          <button
+            id="checkBalance"
+            class="btn btn-primary"
+          >
+            Check account balance
+          </button>
 
+          <div class="balance-container">
             <div>
               <span>Eth Balance</span>
             </div>
@@ -70,19 +72,19 @@
               id="amount"
               placeholder="Input amount to send"
             />
-
-            <button
-              id="sendTx"
-              class="btn btn-primary"
-            >
-              Transfer
-            </button>
           </div>
+
+          <button
+            id="sendTx"
+            class="btn btn-primary"
+          >
+            Transfer
+          </button>
         </section>
 
         <hr />
 
-        <section>
+        <section class="block-container">
           <h2>Number of blocks on the blockchain:</h2>
           <div id="numberOfBlocks"></div>
           <button
@@ -93,7 +95,7 @@
           </button>
         </section>
 
-        <section class="input-transactions">
+        <section class="transactions-section-wrapper">
           <h4>Transactions</h4>
           <div class="transactions-container">
             <div>
