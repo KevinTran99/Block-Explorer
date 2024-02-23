@@ -22,8 +22,8 @@ input {
   align-items: center;
   height: 75px;
   width: 100%;
-  margin-bottom: 1;
-  padding: 0 1rem;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
 }
 
 .container {
